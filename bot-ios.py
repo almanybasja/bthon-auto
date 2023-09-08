@@ -306,7 +306,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
                 [
                     InlineKeyboardButton(
-                        "👤 اضافه ادمن", callback_data="addadminecho"),
+                        "👤 اضافة ادمن", callback_data="addadminecho"),
                     InlineKeyboardButton(
                         "🚮 مسح ادمن", callback_data="deladminecho"),
                 ],
@@ -316,7 +316,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("**مرحبا بك في سورس التجميع الخاص ببيثون** :\n\n- **اشترك في قناة تحديثات بوت التجميع** : @BThon", reply_markup=reply_markup)
+            await update.message.reply_text("**مرحبا بك في سورس التجميع الخاص ببوت بيثون** :\n\n- **اشترك في قناة تحديثات بوت التجميع** : @BThon", reply_markup=reply_markup)
         else:
             if not os.path.isdir("echo_ac/"+str(update.message.chat.id)):
                 os.makedirs("echo_ac/"+str(update.message.chat.id))
@@ -338,7 +338,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببيثون :", reply_markup=reply_markup)
+            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوت بيثون :", reply_markup=reply_markup)
 
 
 async def echoMaker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -517,7 +517,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
                 [
                     InlineKeyboardButton(
-                        "👤 اضافه ادمن", callback_data="addadminecho"),
+                        "👤 اضافة ادمن", callback_data="addadminecho"),
                     InlineKeyboardButton(
                         "🚮 مسح ادمن", callback_data="deladminecho"),
                 ],
@@ -540,7 +540,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببيثون  :", reply_markup=reply_markup)
+            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببوت بيثون  :", reply_markup=reply_markup)
     elif (query.data == "myadminsecho"):
         if "admins" not in info:
             info["admins"] = {}
