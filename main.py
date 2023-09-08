@@ -73,7 +73,7 @@ def main():
             if (response_json["ok"] == False):
                 print("- "+response_json["msg"])
             else:
-                print("- اصبح عدد نقاطك : ",response_json["c"])
+                print("- عدد نقاطك : ",response_json["c"])
             print("- انتظار 30 ثانيه")
             sleep(30)
         client.disconnect()
