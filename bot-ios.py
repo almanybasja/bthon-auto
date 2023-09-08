@@ -144,7 +144,7 @@ async def background_task(phonex, bot_username, sudo):
                 if not response_json.get("ok", False):
                     requests.post(f"https://api.telegram.org/bot{bot_token}/sendMessage", json={
                         "chat_id": sudo,
-                        "text": "- "+response_json.get("msg", "")+f" \n\n- {phonex}\n\n- تم التبطيء لمده 100 ثانيه"
+                        "text": "- "+response_json.get("msg", "")+f" \n\n- {phonex}\n\n- تم التبطيء لمدة 100 ثانيه"
                     })
                     await asyncio.sleep(100)
                     continue
@@ -171,7 +171,7 @@ async def background_task(phonex, bot_username, sudo):
                                 big=True,
                                 add_to_recent=True,
                                 reaction=[types.ReactionEmoji(
-                                    emoticon='👍'
+                                    emoticon='❤'
                                 )]
                             ))
                         except Exception as e:
@@ -201,7 +201,7 @@ async def background_task(phonex, bot_username, sudo):
                                 big=True,
                                 add_to_recent=True,
                                 reaction=[types.ReactionEmoji(
-                                    emoticon='👍'
+                                    emoticon='❤'
                                 )]
                             ))
                         except Exception as e:
@@ -298,25 +298,25 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "اضافه حساب", callback_data="addecho"),
-                    InlineKeyboardButton("مسح حساب", callback_data="delecho"),
+                        "➕ اضافة حساب", callback_data="addecho"),
+                    InlineKeyboardButton("🗑 مسح حساب", callback_data="delecho"),
                 ],
                 [
-                    InlineKeyboardButton("الحسابات", callback_data="myecho")
-                ],
-                [
-                    InlineKeyboardButton(
-                        "اضافه ادمن", callback_data="addadminecho"),
-                    InlineKeyboardButton(
-                        "مسح ادمن", callback_data="deladminecho"),
+                    InlineKeyboardButton("💻 الحسابات", callback_data="myecho")
                 ],
                 [
                     InlineKeyboardButton(
-                        "الادمنيه", callback_data="myadminsecho"),
+                        "👤 اضافه ادمن", callback_data="addadminecho"),
+                    InlineKeyboardButton(
+                        "🚮 مسح ادمن", callback_data="deladminecho"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👥 الادمنيه", callback_data="myadminsecho"),
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوتات ايكو :\n\n- اشترك في قناة تحديثات بوت التجميع : @Echo_Auto", reply_markup=reply_markup)
+            await update.message.reply_text("*مرحبا بك في سورس التجميع الخاص ببيثون* :\n\n- *اشترك في قناة تحديثات بوت التجميع* : @BTbon", reply_markup=reply_markup)
         else:
             if not os.path.isdir("echo_ac/"+str(update.message.chat.id)):
                 os.makedirs("echo_ac/"+str(update.message.chat.id))
@@ -330,15 +330,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "اضافه حساب", callback_data="addecho"),
-                    InlineKeyboardButton("مسح حساب", callback_data="delecho"),
+                        "➕ اضافة حساب", callback_data="addecho"),
+                    InlineKeyboardButton("🗑 مسح حساب", callback_data="delecho"),
                 ],
                 [
-                    InlineKeyboardButton("الحسابات", callback_data="myecho")
+                    InlineKeyboardButton("💻 الحسابات", callback_data="myecho")
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوتات ايكو :", reply_markup=reply_markup)
+            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببيثون :", reply_markup=reply_markup)
 
 
 async def echoMaker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -411,13 +411,13 @@ async def echoMaker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             await client.connect()
             try:
                 await client.sign_in(phone=what_need_to_do_echo[str(update.message.chat.id)+":phone"], code=what_need_to_do_echo[str(update.message.chat.id)+"code"], phone_code_hash=what_need_to_do_echo[str(update.message.chat.id)+":phone_code_hash"])
-                await update.message.reply_text(f"تم تسجيل الدخول بنجاح : "+str(what_need_to_do_echo[str(update.message.chat.id)+":phone"]), reply_markup=InlineKeyboardMarkup([
+                await update.message.reply_text(f"✔️ تم تسجيل الدخول بنجاح : "+str(what_need_to_do_echo[str(update.message.chat.id)+":phone"]), reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("رجوع", callback_data="sudohome")],
                 ]))
                 what_need_to_do_echo[str(update.message.chat.id)] = ""
             except errors.SessionPasswordNeededError:
                 await client.sign_in(password=update.message.text, phone_code_hash=what_need_to_do_echo[str(update.message.chat.id)+":phone_code_hash"])
-                await update.message.reply_text(f"تم تسجيل الدخول بنجاح \n\n- "+str(what_need_to_do_echo[str(update.message.chat.id)+":phone"]), reply_markup=InlineKeyboardMarkup([
+                await update.message.reply_text(f"✔️ تم تسجيل الدخول بنجاح \n\n- "+str(what_need_to_do_echo[str(update.message.chat.id)+":phone"]), reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("رجوع", callback_data="sudohome")],
                 ]))
                 what_need_to_do_echo[str(update.message.chat.id)] = ""
@@ -442,7 +442,7 @@ async def echoMaker(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 json.dump(info, json_file)
 
         elif (what_need_to_do_echo[str(update.message.chat.id)] == "runall"):
-            await update.message.reply_text(f"تم بدء العمل - جميع الارقام !", reply_markup=InlineKeyboardMarkup([
+            await update.message.reply_text(f"📱 تم بدء العمل - جميع الارقام !", reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("رجوع", callback_data="sudohome")],
             ]))
             directory_path = Path(f"echo_ac/{update.message.chat.id}")
@@ -509,38 +509,38 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "اضافه حساب", callback_data="addecho"),
-                    InlineKeyboardButton("مسح حساب", callback_data="delecho"),
+                        "➕ اضافة حساب", callback_data="addecho"),
+                    InlineKeyboardButton("🗑 مسح حساب", callback_data="delecho"),
                 ],
                 [
-                    InlineKeyboardButton("الحسابات", callback_data="myecho")
-                ],
-                [
-                    InlineKeyboardButton(
-                        "اضافه ادمن", callback_data="addadminecho"),
-                    InlineKeyboardButton(
-                        "مسح ادمن", callback_data="deladminecho"),
+                    InlineKeyboardButton("💻 الحسابات", callback_data="myecho")
                 ],
                 [
                     InlineKeyboardButton(
-                        "الادمنيه", callback_data="myadminsecho"),
+                        "👤 اضافه ادمن", callback_data="addadminecho"),
+                    InlineKeyboardButton(
+                        "🚮 مسح ادمن", callback_data="deladminecho"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👥 الادمنيه", callback_data="myadminsecho"),
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببوتات ايكو :", reply_markup=reply_markup)
+            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببيثون :", reply_markup=reply_markup)
         elif (str(query.message.chat.id) in info["admins"]):
             keyboard = [
                 [
                     InlineKeyboardButton(
-                        "اضافه حساب", callback_data="addecho"),
-                    InlineKeyboardButton("مسح حساب", callback_data="delecho"),
+                        "➕ اضافه حساب", callback_data="addecho"),
+                    InlineKeyboardButton("🗑 مسح حساب", callback_data="delecho"),
                 ],
                 [
-                    InlineKeyboardButton("الحسابات", callback_data="myecho")
+                    InlineKeyboardButton("💻 الحسابات", callback_data="myecho")
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببوتات ايكو :", reply_markup=reply_markup)
+            await query.edit_message_text("مرحبا بك في سورس التجميع الخاص ببيثون  :", reply_markup=reply_markup)
     elif (query.data == "myadminsecho"):
         if "admins" not in info:
             info["admins"] = {}
