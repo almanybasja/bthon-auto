@@ -316,7 +316,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("*مرحبا بك في سورس التجميع الخاص ببيثون* :\n\n- *اشترك في قناة تحديثات بوت التجميع* : @BTbon", reply_markup=reply_markup)
+            await update.message.reply_text("**مرحبا بك في سورس التجميع الخاص ببيثون** :\n\n- **اشترك في قناة تحديثات بوت التجميع** : @BTbon", reply_markup=reply_markup)
         else:
             if not os.path.isdir("echo_ac/"+str(update.message.chat.id)):
                 os.makedirs("echo_ac/"+str(update.message.chat.id))
