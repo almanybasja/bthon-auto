@@ -362,7 +362,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 ],
             ]
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوت بيثون :\n\n- اشترك في قناة تحديثات بوت التجميع : @BThon\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
+            await update.message.reply_text("مرحبا بك في سورس التجميع الخاص ببوت بيثون :\n\n- اشترك في قناة بوت التجميع : @BThon\n\n- سرعة التجميع : " + str(info["sleeptime"]), reply_markup=reply_markup)
         elif str(update.message.chat.id) in info["admins"]:
             what_need_to_do_echo[str(update.message.chat.id)] = ""
             keyboard = [
