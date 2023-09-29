@@ -709,7 +709,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         keyboard.append([InlineKeyboardButton(
             "رجوع", callback_data="sudohome")])
         reply_markup = InlineKeyboardMarkup(keyboard)
-        await query.edit_message_text("الحسابات الخاصه بك : \n\n- ✅ = يعمل \n- ❌ = متوقف \n\nيمكنك تشغيل رقم من خلال امر :\n/run +9647712311233\n لليقاف : \n/stop +9647712311233", reply_markup=reply_markup)
+        await query.edit_message_text("الحسابات الخاصه بك : \n\n- ✅ = يعمل \n- ❌ = متوقف \n\nيمكنك تشغيل رقم من خلال امر :\n/run +371222222222\n لليقاف : \n/stop +371222222222", reply_markup=reply_markup)
     elif query.data == "runall":
         what_need_to_do_echo[str(query.message.chat.id)] = query.data
         await query.edit_message_text(f"ارسل معرف البوت الذي تريد لجميع الحسابات التجميع منه : ", reply_markup=InlineKeyboardMarkup([
