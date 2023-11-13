@@ -1,5 +1,5 @@
 {
-	"name": "ZeView",
+	"name": "AlmanyTgmy",
 	"description": "A TeleGramBot to send messages secretly!",
 	"logo": "https://telegra.ph/file/95d8212ec631226c40650.jpg",
 	"keywords": [
@@ -8,7 +8,7 @@
 		"python",
 		"telethon"
 	],
-	"repository": "https://github.com/Source-Ze/views",
+	"repository": "https://github.com/almanybasja/bthon-auto",
     "env": {
         "TG_BOT_TOKEN": {
             "description": "Your Telegram Bot Token from @BotFather",
